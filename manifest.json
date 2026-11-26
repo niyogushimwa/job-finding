@@ -1,0 +1,20 @@
+{
+  "name": "JobLink Rwanda",
+  "short_name": "JobLink",
+  "description": "Your Skills Deserve an Opportunity. Find jobs, internships and career resources in Rwanda and beyond.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fb",
+  "theme_color": "#0b1f3a",
+  "orientation": "portrait-primary",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "assets/img/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

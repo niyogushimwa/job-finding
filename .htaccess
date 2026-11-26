@@ -1,0 +1,21 @@
+# Pretty URLs. Works in a subdirectory without modification.
+RewriteEngine On
+
+# Never expose secrets, source code, SQL dumps or runtime logs.
+RewriteRule (^|/)\.(?!well-known/) - [F,L]
+RewriteRule ^(app|config|database|storage)(/|$) - [F,L]
+RewriteRule ^(composer\.(json|lock)|\.env|.*\.(sql|log|md|ini|phtml|inc))$ - [F,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# Do not list directories
+Options -Indexes
